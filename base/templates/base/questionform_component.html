@@ -1,0 +1,96 @@
+{% block content %}
+
+<form class="w-full max-w-lg" method="POST">
+    {%csrf_token%}
+    <div class="flex flex-wrap -mx-3 mb-6">
+      <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+            Topic
+          </label>
+
+          
+        <select required id="id_topic" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state" name="{{form.topic.name}}">
+            {% for option in topics %}
+            <option value="{{option.id}}">{{option}}</option>
+            {% endfor %}
+          </select>
+      </div>
+      <div class="w-full md:w-1/2 px-3">
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+            Point
+          </label>
+          <div id="point-input-field" class="flex flex-row items-center gap-5">
+            <div id="point-increment"><i  class=" fa-solid fa-plus"></i></div>
+            <input name = "{{form.point.name}}" id = "point-value" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"  type="number" placeholder="" value = "0" max = "{{request.user.point.points}}" min="0" readonly="true">
+            <div id="point-decrement"><i  class=" fa-solid fa-minus"></i></div>
+        
+            <script type="text/javascript"> 
+              var max_point = "{{request.user.point.points}}";
+           </script>
+
+          </div>
+          
+          
+        </div>
+
+    </div>
+    <div class="flex flex-wrap -mx-3 mb-6">
+      <div class="w-full px-3">
+        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
+          Question
+        </label>
+        <input name = "{{form.name.name}}" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"  type="text" placeholder="" >
+        <p class="text-gray-600 text-xs italic">Make it as long and as crazy as you'd like</p>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap -mx-3 mb-6">
+        <div class="w-full px-3">
+          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+            Description
+          </label>
+          <textarea cols="40" rows="10" id="id_description" name = "{{form.description.name}}" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"  type="text   " placeholder=""></textarea>
+          <p class="text-gray-600 text-xs italic">Describe your Question</p>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap -mx-3 mb-6">
+        <div class="w-full px-3">
+          
+          <input class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"  type="submit" placeholder="">
+          
+        </div>
+      </div>
+
+</form>
+
+
+{% endblock content %}
+
+<!-- <form method="post">
+    {%csrf_token%}
+
+    <div>
+      <label>{{form.topic.label}}</label>
+      {{form.topic}}
+    </div>
+    
+
+    <div>
+      <label>{{form.name.label}}</label>
+      {{form.name}}
+    </div>
+
+    <div>
+      <label>{{form.description.label}}</label>
+      {{form.description}}
+    </div>
+    
+    <div>
+      <label>{{form.point.label}}</label>
+      <input type="number" min="0" value="0" step = "5" name="{{form.point.name}}">
+    </div>
+
+    <input type="submit">
+
+</form> -->

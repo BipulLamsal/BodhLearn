@@ -1,0 +1,30 @@
+{%load static%}
+<header class="flex items-center justify-between py-4">
+    <nav class="navbar basis-1/6">
+        <a href="{% url 'home' %}" class="pr-10 active">Home</a>
+        <a href="{% url 'following' %}" class="">Following</a>
+    </nav>
+    <div class="w-full basis-2/3 lg:basis-4/6 flex justify-center">
+        <form method="GET" action="{% url 'home' %}" class="w-full">
+            
+            <input type="text" placeholder="🔍 Search" class="search bg-[#f5f5f5] w-full rounded-md pl-4" name = "search">
+        </form>
+        
+    </div>
+
+    <div class="user-profile basis-1/3  lg:basis-1/6 flex justify-end items-center px-4">
+        <img src="{% static request.user.extendprofile.profile_img %}" alt="">
+    </div>
+
+    <div class="nav-sidebar">
+        <p href="" class="mb-nav-toggle"><i class="fa-solid fa-xmark"></i></p>
+        <a href="{% url 'userprofile' request.user %}"><span><i class="fa-solid fa-user"></i></span> Profile</a>
+        <a href=""> <span><i class="fa-solid fa-trophy"></i></span> LeaderBoard</a>
+        <a href="{%url 'logout'%}"> <span><i class="fa-solid fa-right-from-bracket"></i></span> Log Out</a>
+    </div>
+
+</header>
+
+
+
+

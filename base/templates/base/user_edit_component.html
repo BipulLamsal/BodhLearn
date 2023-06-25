@@ -1,0 +1,84 @@
+<form method="POST" enctype="multipart/form-data">
+  {%csrf_token%}
+  {{form.as_p}}
+
+
+  <input type="Submit">
+</form>
+
+
+<!-- <form method="POST" enctype="multipart/form-data">
+    {%csrf_token%}
+    <div class="flex flex-wrap mb-4">
+        <div class="w-full md:w-1/2 ">
+          <input 
+          type="text"
+      class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+      value="{{form2.first_name.value}}"
+      >
+          
+        </div>
+        <div class="w-full md:w-1/2 ">
+            <input 
+            type="text"
+        class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+        value="{{form2.last_name.value}}"
+        placeholder="Last Name">
+        </div>
+    </div>
+
+
+  <div class="mb-4">
+    <input
+      type="text"
+      class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+      id="exampleFormControlInput1"
+      value="{{form2.username.value}}"
+      placeholder="Username"
+      required
+    />
+  </div>
+  <div class="mb-4">
+    <input
+      type="email"
+      class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+      id="exampleFormControlInput1"
+      placeholder="Email Address"
+      value="{{form2.email.value}}"
+    />
+  </div>
+ 
+  <div class="mb-4">
+
+    
+<P class="text-base font-normal text-gray-700"> Profile Picture : </P>
+<input class=" block w-full py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding" type="file" name="profile_img" accept="image/*" id="id_profile_img">
+
+  </div> 
+
+   <div class="mb-4">
+
+    
+    <P class="text-base font-normal text-gray-700"> Cover Picture : </P>
+    <input class=" block w-full py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding" type="file">
+
+      </div> 
+
+
+  <div class="text-center pt-1 mb-12 pb-1">
+    <input
+      class="inline-block px-6 py-2.5 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3"
+      type="submit"
+      data-mdb-ripple="true"
+      data-mdb-ripple-color="light"
+      style="
+        background: linear-gradient(
+            to left, #56CCF2, #54A0FF, #2F80ED
+        );
+      "
+    >
+  </input>
+
+  </div>
+
+</form> -->

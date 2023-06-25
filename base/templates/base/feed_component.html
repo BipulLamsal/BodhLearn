@@ -1,0 +1,65 @@
+{% load mathfilters %}
+{% block content %}
+{% for question in questions %}
+
+<div class="post-query p-4 rounded-md mb-4">
+<a href="{% url 'question' question.id %}">
+
+    <div class="post-points 
+    
+    {% if question.topic.name == 'Physics' %}
+    bg-[#54A0FF]
+    {%elif question.topic.name == 'Chemistry' %}
+    bg-[#5F27CD]
+    {%elif question.topic.name == 'Maths' %}
+    bg-[#FF0266]
+    {%elif question.topic.name == 'Computer Science' %}
+    bg-[#1DD1A1]
+    {%else%}
+    bg-[#e74c3c]
+    {%endif%}
+
+    
+    "
+    
+    >
+        + {{question.point}}
+    </div>
+    <p class="post-question text-base lg:text-xl font-semibold">{{question.name}}</p>
+    <div class="post-des flex flex-row font-light text-sm mt-1">
+        <p class="post-topic px-4 rounded-full text-white  {% if question.topic.name == 'Physics' %}
+        bg-[#54A0FF]
+        {%elif question.topic.name == 'Chemistry' %}
+        bg-[#5F27CD]
+        {%elif question.topic.name == 'Maths' %}
+        bg-[#FF0266]
+        {%elif question.topic.name == 'CS' %}
+        bg-[#1DD1A1]
+        {%else%}
+        bg-[#e74c3c]
+        {%endif%}
+    ">{{question.topic}}</p>
+        <p class="post-author px-2">@{{question.host}}</p>
+    </div>
+    <div class="post-stat flex flex-row mt-4 text-sm">
+        <div class="upvote">
+            <i class="fa-solid fa-chevron-up"></i>
+            {{question.like.count|sub:question.dislike.count}} votes
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        <div class="comments px-4">
+            <i class="fa-solid fa-comment"></i>
+            {{question.message_set.count}} Answers
+            
+        </div>
+    </div>
+
+</a>
+
+
+</div>
+
+
+{% endfor %}
+
+{% endblock content%}

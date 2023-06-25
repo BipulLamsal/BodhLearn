@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+body
+{
+    font-family: 'Poppins', sans-serif;
+    color: #212121;
+}
+
+
+.navbar a
+{
+
+    color: #212121;
+    font-weight: 700;
+}
+
+.navbar a:last-child
+{
+    font-weight: 400;  
+}
+
+.search
+{
+    color: #212121;    
+    border: none;
+    
+}
+.user-profile{
+    
+    font-size: 25px;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.image-profile-item
+{
+    position: absolute;
+    bottom: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.image-profile-item img
+{
+    object-fit: cover;
+    width: 120px;
+    height: 120px;
+    border-radius: 80px;
+    border: 1px solid white;
+}
+
+
+.user-profile img, .top-user-item img, .answer-user-item img
+{
+  object-fit: cover;
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+
+}
+.nav-sidebar
+{
+    z-index: 1000;
+    position: fixed;
+    inset: 0 0 0 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    padding: min(30vh,10rem) 2em;
+    background-color: rgb(84, 160, 255,0.1);
+    backdrop-filter: blur(1rem);
+    transform: translateX(100%);
+    transition: transform 350ms ease;
+}
+.mb-nav-toggle
+{
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.post-query
+{
+    position: relative;
+border:2px solid #f0f0f0;
+
+}
+
+.post-points
+{
+    position: absolute;
+    font-weight: 700;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    font-size: 12px;
+    padding-top: 12px;
+    color: white;
+    padding-left: 6px;
+    right: -10px;
+    top: -10px;
+}
+.mobile-bottom-menu
+{
+    display: none;
+}
+
+.category-item p
+{
+padding: 4px;
+}
+
+.upvote-post 
+{
+    cursor: pointer;
+    transition: color 0.1s ease;
+}
+.upvote-post:hover
+{
+    color: #54A0FF;
+
+}
+.msg-user-fun
+{
+    margin-left: auto;
+    cursor: pointer;
+}
+
+
+.answer-container
+{   
+
+
+    max-height:350px;
+    overflow:auto;
+    
+}
+
+.user-answer
+{
+    padding-left: 10px;
+    border-left: 4px solid #f0f0f0;
+    color: #212121;
+}
+.user-post-answer
+{
+    margin-bottom: 60px;
+}
+.user-post-answer textarea
+{
+width: 90%;
+background-color: #f0f0f0;
+border: none;
+border-radius: 5px;
+padding: 5px 20px;
+min-height: 100px;
+}
+.user-post-answer button
+{
+    width: 10%;
+    
+}
+@media screen and (max-width: 1024px)
+{
+
+   .cateogries,.create-button-container,.top-user
+   {
+    display: none;
+   }
+
+   .mobile-bottom-menu
+   {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    overflow-x: hidden;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background-color: #fff;
+    gap: 1.5em;
+   }
+   .mobile-bottom-menu a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   }
+
+   .mobile-bottom-menu a:nth-child(2)
+   {
+    border-radius: 100px;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    background-color: rgb(84, 160, 255);
+   }
+header
+{
+    z-index: 100;
+    position: fixed;
+    top:0;
+    left: 0;
+    overflow-x: hidden;
+    width: 100%;
+    background-color: #fff;
+    padding:0  80px;
+
+}
+.navbar
+{
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 60px;
+    display: flex;
+    justify-content: center;
+    padding: 3px;
+    background-color: #fff;
+    
+}
+.navbar .active::after
+{
+    content: '';
+position: absolute;
+background-color: #54A0FF;
+height: 2px;
+border-radius: 100px;
+width: 50px;
+display: flex;
+bottom: 0px;
+}
+
+.nav-sidebar
+{
+    inset: 0 0 0 50%;
+}
+
+  
+}
+@media screen and (max-width: 768px)
+{
+    header
+    {
+        padding:0  20px ; 
+    }
+    .nav-sidebar
+{
+    inset: 0 0 0 30%;
+}
+
+
+}

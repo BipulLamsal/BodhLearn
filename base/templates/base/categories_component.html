@@ -1,0 +1,23 @@
+{% block content %}
+
+<button class="create-button bg-[#54A0FF] p-2 rounded-md text-white text-sm mb-10">
+
+    <a href="{% url 'createpost' %}"><i class="fa-solid fa-plus"></i> Create Post</a>
+</button>
+
+
+<div class="cateogries">
+    <div class="category-title text-xl font-semibold mb-4">
+        Categories
+    </div>
+    <div class="category-item text-sm">
+        <p><a href="{%url 'home'%}">All</a></p>
+        {% for topic in topics %}
+        <p><a href="{% url 'home' %}?search={{topic.name}}">{{topic.name}}</a></p>
+        {% endfor %}
+
+    </div>
+</div>
+
+
+{% endblock content%}

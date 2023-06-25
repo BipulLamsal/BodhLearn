@@ -1,0 +1,17 @@
+{% load static%}
+{% block content %}
+{% for participant in participants%}
+<div class="top-user-item flex flex-row mb-4 items-center">
+    
+
+    
+    <img src="{% static participant.extendprofile.profile_img %}" alt="" class="mr-4">
+    <div class="top-user-des text-sm">
+        <p class="font-semibold">@{{participant.username}}</p>
+    </div>
+    
+
+
+</div>
+{% endfor %}
+{% endblock content %}

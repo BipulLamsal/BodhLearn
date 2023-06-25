@@ -1,0 +1,132 @@
+
+{% extends 'main.html' %}
+{% load static%}
+{% load mathfilters %}
+{% block content%}
+<div class="flex flex-col w-full items-center">
+
+
+    
+    <div class="profile-cover-container bg-[#eee] h-48 w-full rounded-md relative">
+        <div class="gradient absolute w-full h-full bg-gradient-to-r from-[#1ec3ff62] to-[#1e87ff4a]"></div>
+        <img src="{% static user.extendprofile.cover_img %}" class="bg-[#eee] w-full h-full rounded-md bg-cover object-cover bg-no-repeat profile-cover ">
+        <div class="image-profile-item">
+            <img src="{% static user.extendprofile.profile_img %}">
+        </div>
+        <div class="follow-button absolute bottom-5 right-5">
+            <form>
+                
+                {% if user == request.user %}
+                <a class="bg-blue-500 hover:bg-blue-700 text-white text-sm py-2 px-4 rounded" href="{% url 'update-profile' user.id %}">Edit</a>
+               
+                {%else%}
+                <form method="post">
+                    {%csrf_token%}  
+                
+                    
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white text-sm py-2 px-4 rounded"  value="follower" name="follow" type="submit" formmethod="post" >
+                        {%if user.extendprofile.follower.exists %}
+                        Unfollow
+                        {%else%}
+                        Follow
+                        {%endif%}
+                    
+                    </button>
+                </form>
+                
+                {% endif %}
+            
+            </form>
+        </div>
+    </div>
+
+    <div class="profile-descriptions mt-16 relative ">
+        <div class="profile-name flex items-center flex-col">
+            <p class="text-lg font-bold">{{user.first_name}} {{user.last_name}}</p>
+            <p class="text-sm ">@{{user.username}}</p>
+            
+        </div>
+        <div class="profile-stats flex gap-8 mt-2 md:container p-5 bg-slate-100 rounded-md">
+            <div class="text-sm flex flex-col items-center ">
+                <p>Joined</p>
+                <p class="font-bold">{{user.date_joined | date:"M, Y"}}</p>
+            </div>
+            <div class="text-sm flex flex-col items-center ">
+                <p>Followers</p>
+                <p class="font-bold">{{user.extendprofile.follower.count}}</p>
+            </div>
+            <div class="text-sm flex flex-col items-center ">
+                <p>Following</p>
+                <p class="font-bold">{{user.extendprofile.following.count}}</p>
+            </div>
+            <div class="text-sm flex flex-col items-center">
+                <p>Coins</p>
+                <p class="font-bold">{{user.point.points}}</p>
+            </div>
+
+
+        </div>
+
+
+        
+    </div>
+
+    <div class="profile-posts lg:w-3/4 w-full mt-10">
+        {% for question in questions%}
+        
+            <div class="post-query p-4 rounded-md mb-4">
+                <div class="post-points {% if question.topic.name == 'Physics' %}
+                bg-[#54A0FF]
+                {%elif question.topic.name == 'Chemistry' %}
+                bg-[#5F27CD]
+                {%elif question.topic.name == 'Maths' %}
+                bg-[#FF0266]
+                {%elif question.topic.name == 'CS' %}
+                bg-[#1DD1A1]
+                {%else%}
+                bg-[#e74c3c]
+                {%endif%}">
+                    + {{question.point}}
+                </div>
+                <p class="post-question text-base lg:text-xl font-semibold">{{question.name}}</p>
+                <div class="post-des flex flex-row font-light text-sm mt-1">
+                    <p class="post-topic px-4 rounded-full text-white {% if question.topic.name == 'Physics' %}
+                    bg-[#54A0FF]
+                    {%elif question.topic.name == 'Chemistry' %}
+                    bg-[#5F27CD]
+                    {%elif question.topic.name == 'Maths' %}
+                    bg-[#FF0266]
+                    {%elif question.topic.name == 'CS' %}
+                    bg-[#1DD1A1]
+                    {%else%}
+                    bg-[#e74c3c]
+                    {%endif%}">{{question.topic}}</p>
+                </div>
+                <div class="post-stat flex flex-row mt-4 text-sm">
+                    <div class="upvote">
+                        <i class="fa-solid fa-arrow-up"></i>
+                        {{question.like.count|sub:question.dislike.count}} votes
+                        <i class="fa-solid fa-arrow-down"></i>
+                    </div>
+                    <div class="comments px-4">
+                        <i class="fa-solid fa-comment"></i>
+                        {{question.message_set.count}} Answers
+                        
+                    </div>
+                    {%if question.host == request.user %}
+                    <div class="">
+                        <a href="{% url 'update-post' question.id %}"><i class="fa-solid fa-pen-to-square px-2"></i></a>
+                        <a href="{% url 'delete-post' question.id %}"><i class="fa-solid fa-trash px-2"></i></a>
+                    </div>
+                    {%endif%}
+                </div>
+    
+            </div>
+        {% endfor %}
+    
+            
+        
+    </div>
+</div>
+
+{% endblock %}

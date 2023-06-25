@@ -1,0 +1,15 @@
+{% load static%}
+{% block content%}
+
+{% for topuser in top_users %}
+<div class="top-user-item flex flex-row mb-4">
+    <img src="{% static topuser.user.extendprofile.profile_img %}" alt="" class="mr-4">
+
+    <div class="top-user-des text-sm">
+        <a href="{% url 'userprofile' topuser.user %}">@{{topuser.user}}</a>
+        <p class="font-semibold">{{topuser.points}} points</p>
+    </div>
+</div>
+{% endfor %}
+
+{%endblock%}

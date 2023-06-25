@@ -1,0 +1,39 @@
+
+
+<!doctype html>
+{% load static %}
+{% load tailwind_tags %}
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  {% tailwind_css %}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/fontawesome.min.css" integrity="sha512-giQeaPns4lQTBMRpOOHsYnGw1tGVzbAIHUyHRgn7+6FmiEgGGjaG0T2LZJmAPMzRCl+Cug0ItQ2xDZpTmEc+CQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/js/all.min.js" integrity="sha512-rpLlll167T5LJHwp0waJCh3ZRf7pO6IT1+LZOhAyP6phAirwchClbTZV3iqL3BMrVxIYRbzGTpli4rfxsCK6Vw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  
+  <title>Bodh Learn</title>
+
+
+</head>
+
+<body class="md:container md:mx-auto md:px-20 px-5 mb-20">
+    
+    {% include 'navbar.html' %}
+    
+    {% block content %}
+    
+    {% endblock %}
+    
+
+<div class="mobile-bottom-menu text-lg">
+    <a href="{% url 'home' %}"><i class="fa-solid fa-house"></i></a>
+    <a href="{% url 'createpost' %}"><i class="fa-solid fa-plus"></i></a>
+    <a href="#"><i class="fa-solid fa-bell"></i></a>
+</div>
+
+<script src="{% static 'scripts/script.js' %}"></script>
+</body>
+</html>

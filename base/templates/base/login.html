@@ -1,0 +1,50 @@
+{% extends 'main.html' %}
+{%load static%}
+{% block content%}
+
+<section class="gradient-form  md:h-screen lg:mt-2 mt-24">
+    <div class="container px-6">
+      <div class="flex justify-center flex-wrap h-full g-6 text-gray-800">
+        <div class="xl:w-10/12">
+          <div class="block bg-white shadow-lg rounded-lg">
+            <div class="lg:flex lg:flex-wrap g-0">
+              <div class="lg:w-6/12 px-4 md:px-0">
+                <div class="md:p-12 md:mx-6">
+                  <div class="text-center">
+                    <img
+                      class="mx-auto w-36"
+                      src="{% static 'imgs/logo.png'%}"
+                      alt="logo"
+                    />
+                    <h4 class="text-xl font-semibold mt-1 mb-12 pb-1">Welcome to Bodhlearn</h4>
+                  </div>
+                    {% if page == 'login'%}
+                    {% include 'base/login_component.html'%}
+                    {%else%}
+                    {% include 'base/register.html'%}
+                    {%endif%}
+                </div>
+              </div>
+              <div
+                class="lg:w-6/12 flex items-center lg:rounded-r-lg rounded-b-lg lg:rounded-bl-none"
+                style="
+                  background: linear-gradient(to left, #56CCF2, #54A0FF, #2F80ED);
+                "
+              >
+                <div class="text-white px-4 py-6 md:p-12 md:mx-6">
+                  <h4 class="text-xl font-semibold mb-6">Stuck With A Question?</h4>
+                  <p class="text-sm">Bodhlearn may help you.Students can post questions,answer questions and gain points to get exciting gifts. This is the beta version of the app with limited features.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+{% endblock %}
+
+ 
